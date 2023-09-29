@@ -1,5 +1,0 @@
-Develop a database scheme to gather information about Actors .The database should include:
-a table describing actors, their name and surname, their nationality, information when they started their actor's career .
-a table describing education level .
-a table describing the actor appearance, height, size of cloth which they wear, hair color, eye color, skin tone . a table describing movies in which they play a role, this table will include title of the movie and release date . Of course, each movie may belong to several genres .We also want to know the location where movie was filmed .Actor can participate in many movies.
-The database should also include the awards which actors received throughout their acting career.
