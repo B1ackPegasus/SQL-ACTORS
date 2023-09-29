@@ -1,0 +1,190 @@
+--Table Education 
+ INSERT INTO Education(id, Degree , Major, Institution,Graduation_year) 
+VALUES (1,'Bachelors','Drama','New York University', TO_DATE('01.06.1993', 'DD.MM.YYYY'));
+ INSERT INTO Education(id, Degree , Major, Institution,Graduation_year) 
+VALUES (2,'Bachelors','Drama','Sapienza University', TO_DATE('01.06.1940', 'DD.MM.YYYY'));
+ INSERT INTO Education(id, Degree , Major, Institution,Graduation_year) 
+VALUES (3,'Bachelors','Drama',' Actors Institute', TO_DATE('01.06.1990', 'DD.MM.YYYY'));
+ INSERT INTO Education(id, Degree , Major, Institution,Graduation_year) 
+VALUES (4, 'Bachelors', 'Drama', 'Harvard University', TO_DATE('01.06.2003', 'DD.MM.YYYY'));
+ INSERT INTO Education(id, Degree , Major, Institution,Graduation_year) 
+VALUES (5, 'Bachelors', 'Drama', 'Chicago University', TO_DATE('01.06.1995', 'DD.MM.YYYY'));
+
+--Table AppearanceDetail
+INSERT INTO AppearanceDetail ( ID, Height,Hair_Color,Eye_Color,SkinTone,ClothingSize)
+VALUES ( 1, 169, 'Dark Brown', 'Hazel', 'Fair', 'S');
+INSERT INTO AppearanceDetail ( ID, Height,Hair_Color,Eye_Color,SkinTone,ClothingSize)
+VALUES( 2, 179, 'Dark Brown', 'Brown', 'Fair', 'M');
+INSERT INTO AppearanceDetail ( ID, Height,Hair_Color,Eye_Color,SkinTone,ClothingSize)
+VALUES ( 3, 185, 'Dark Brown', 'Brown', 'Light', 'M');
+INSERT INTO AppearanceDetail ( ID, Height,Hair_Color,Eye_Color,SkinTone,ClothingSize)
+VALUES (4, 160, 'Brown', 'Brown', 'Fair', 'S');
+INSERT INTO AppearanceDetail ( ID, Height,Hair_Color,Eye_Color,SkinTone,ClothingSize)
+VALUES ( 5, 178, 'Brown', 'Brown', 'Light', 'M');
+--Table Actor
+INSERT INTO Actor (id, First_Name, Last_Name, Date_of_Birth, Country_of_Birth, Career_Begining, Education_id, AppearanceDetail_ID ,Sex)
+VALUES (1,'Angelina','Jolie',TO_DATE('1975-06-04', 'YYYY-MM-DD'),'United States',TO_DATE('1993-01-01', 'YYYY-MM-DD'), 1 , 1, 'F');
+INSERT INTO Actor (id, First_Name, Last_Name, Date_of_Birth, Country_of_Birth, Career_Begining, Education_id, AppearanceDetail_ID, Sex)
+VALUES (2, 'Marcello', 'Mastroianni', TO_DATE('1924-09-28', 'YYYY-MM-DD'), 'Italy', TO_DATE('1947-01-01', 'YYYY-MM-DD'), 2, 2, 'M');
+INSERT INTO Actor (id, First_Name, Last_Name, Date_of_Birth, Country_of_Birth, Career_Begining, Education_id, AppearanceDetail_ID, Sex)
+VALUES (3, 'Vincent', 'Cassel', TO_DATE('1966-11-23', 'YYYY-MM-DD'), 'France', TO_DATE('1994-01-01','YYYY-MM-DD'), 3 , 3, 'M');
+INSERT INTO Actor (id, First_Name, Last_Name, Date_of_Birth, Country_of_Birth, Career_Begining, Education_id, AppearanceDetail_ID, Sex)
+VALUES (4, 'Natalie', 'Portman', TO_DATE('1981-06-09','YYYY-MM-DD'), 'Israel', TO_DATE('1994-01-01','YYYY-MM-DD'), 4, 4, 'F');
+INSERT INTO Actor (id, First_Name, Last_Name, Date_of_Birth, Country_of_Birth, Career_Begining, Education_id, AppearanceDetail_ID, Sex)
+VALUES(5, 'Johnny', 'Depp', TO_DATE('1963-06-09','YYYY-MM-DD'), 'United States', TO_DATE('1984-01-01', 'YYYY-MM-DD'), 5, 5, 'M');
+
+--Table Award
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (1,'Golden Globe ',TO_DATE('1999-01-24','YYYY-MM-DD'),'Best Actress for a Mini-series','Best Performance');
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (2,'Oskar',TO_DATE('2000-03-24','YYYY-MM-DD'),'Oscar for Supporting Actress','Best Actress');
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (3,'Venice Film Festiva ',TO_DATE('1989-09-05','YYYY-MM-DD'),'Best Actor at the Venice film festivale' , 'Best Actor');
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (4,'Volpi Cup ',TO_DATE('2008-09-06', 'YYYY-MM-DD'),'Best Actor, Killer Instinct"' ,'Best Actor');
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (5,'BAFTA ',TO_DATE('1966-03-12','YYYY-MM-DD'),'Best Foreign Actress for "Marriage Italian-Style"','Best Foreign Actress');
+INSERT INTO Award (id , Name , Date_Receive ,ShortDescription ,Category)
+VALUES (6,'Golden Globe ',TO_DATE('2008-01-13','YYYY-MM-DD'),'Best Actor - Motion Picture Musical ','Best Actor');
+--Table Actor_Award
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (1,1);
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (1,2);
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (2,3);
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (3,4);
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (4,5);
+INSERT INTO Actor_Award( Actor_id , Award_id ) 
+VALUES (5,6);
+--Table Location
+INSERT INTO Location (ID,Name,City)
+VALUES (1,'Studia','London ');
+INSERT INTO Location (ID,Name,City)
+VALUES (2,'Street',' Prague');
+INSERT INTO Location (ID,Name,City)
+VALUES (3,'Titanus',' Rome ');
+INSERT INTO Location (ID,Name,City)
+VALUES (4,'Studia','London ');
+INSERT INTO Location (ID,Name,City)
+VALUES (5,' Cross Creek ', 'New York');
+INSERT INTO Location (ID,Name,City)
+VALUES (6,'Marvel Studios','USA');
+INSERT INTO Location (ID,Name,City)
+VALUES (7,'Disney','USA');
+INSERT INTO Location (ID,Name,City)
+VALUES (8,' Ithaca','Morocco');
+
+
+
+
+--Table Movie 
+INSERT INTO Movie (id, Title,Release_date,Rating,Location_ID)
+VALUES (1, 'Malef', TO_DATE('2014-05-20','YYYY-MM-DD'),4.5,1);
+INSERT INTO Movie ( id, Title,Release_date,Rating,Location_ID)
+VALUES (2, 'La Dolce Vita', TO_DATE('1960-02-05', 'YYYY-MM-DD'),4.2,2);
+INSERT INTO Movie ( id, Title,Release_date,Rating,Location_ID)
+VALUES (3,'Black Swan', TO_DATE('2010-12-17', 'YYYY-MM-DD'),3.5 ,3);
+INSERT INTO Movie ( id, Title,Release_date,Rating,Location_ID)
+VALUES (4, 'Thor: Love and Thunder', TO_DATE('2022-11-11', 'YYYY-MM-DD'), 4.2,4);
+INSERT INTO Movie ( id, Title,Release_date,Rating,Location_ID)
+VALUES (5, 'Pirates of the Caribbean', TO_DATE('2003-07-09', 'YYYY-MM-DD'), 4.9 ,5);
+INSERT INTO Movie ( id, Title,Release_date,Rating,Location_ID)
+VALUES (6, 'Waiting for the Barbarians', TO_DATE('2019-09-06', 'YYYY-MM-DD'),4.1,8);
+--Table Genre
+INSERT INTO Genre (id , Name)
+VALUES (1,' fantasy');
+INSERT INTO Genre(id,Name)
+VALUES (2,'adventure');
+INSERT INTO Genre (id , Name)
+VALUES (3,'drama');
+INSERT INTO Genre (id , Name)
+VALUES (4,'comedy');
+INSERT INTO Genre(id , Name)
+VALUES (5,'thriller');
+INSERT INTO Genre (id , Name)
+VALUES (6,'action');
+--Table MovieGenre
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (1,1);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (1,2);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (2,3);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (2,4);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (3,5);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (4,5);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (5,2);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (6,5);
+INSERT INTO MovieGenre( Movie_id , Genre_id)
+VALUES (6,3);
+--Table Movie_Actor
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (1,1,'Maleficent');
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (2,2,'Marcello Rubini');
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (3,3,' Thomas Leroy');
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (4,4,'Jane Foster');
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (5,5,'Captain Jack');
+INSERT INTO Movie_Actor (Actors_id ,Movie_id,Rol)
+VALUES (5,6,'Colonel Joll');
+
+--2 PART 
+
+-- 2.1SELECT WITH WHERE TASKS 
+
+SELECT Movie.Title as Film ,Actor.First_Name as Actor 
+FROM Movie JOIN Movie_Actor ON Movie.id = Movie_Actor.Movie_id JOIN Actor ON Movie_Actor.Actors_id = Actor.id
+WHERE Actor.First_Name = 'Johnny';
+
+--2.2 SELECT WITH WHERE TASKS 
+SELECT Actor.First_Name  as Name , Actor.Last_Name as Surname 
+FROM Actor JOIN  AppearanceDetail ON Actor.id=AppearanceDetail.ID
+WHERE  AppearanceDetail.Hair_Color = 'Dark Brown';
+
+--2 SELECT statements with aggregate functions 
+SELECT COUNT(*) AS Female
+FROM Actor
+WHERE Sex = 'F';
+
+SELECT MAX(AppearanceDetail.Height) AS Tallest 
+FROM AppearanceDetail ;
+
+--3 2 SELECT statements with subquery
+SELECT First_Name, Last_Name
+FROM Actor
+WHERE id IN ( SELECT Actor_id FROM AppearanceDetail
+WHERE ClothingSize = 'M' AND Eye_Color = 'Brown'
+);
+
+SELECT Actor.First_Name 
+  FROM Actor
+  WHERE Sex = 'M' AND id IN( SELECT Actors_id FROM Movie_Actor GROUP BY Actors_id HAVING COUNT(DISTINCT Movie_id) > 1);
+    
+ -- 1 SELECT statement with correlated subquery 
+   
+SELECT a.First_Name, a.Last_Name
+FROM Actor a
+WHERE EXISTS (
+  SELECT 1
+  FROM Movie_Actor ma INNER JOIN Movie m ON ma.Movie_id = m.id INNER JOIN MovieGenre mg ON m.id = mg.Movie_id INNER JOIN Genre g ON mg.Genre_id = g.id WHERE ma.Actors_id = a.id AND g.Name = 'comedy');
+
+
+--1 UPDATE with  subquery 
+UPDATE Movie 
+SET Rating = 5
+WHERE id IN ( SELECT Movie_id FROM Movie_Actor
+WHERE Actors_id IN ( SELECT id FROM Actor WHERE First_Name = 'Angelina')) AND Rating > 3;
+--1 DELETE with subquery
+DELETE FROM Actor
+WHERE  id IN (SELECT id FROM Actor WHERE AGE(Date_of_Birth) > 40 );

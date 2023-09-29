@@ -1,0 +1,143 @@
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2023-06-14 14:52:11.508
+
+-- tables
+-- Table: Actor
+CREATE TABLE Actor (
+    id integer  NOT NULL,
+    First_Name varchar2(15)  NOT NULL,
+    Last_Name varchar2(15)  NOT NULL,
+    Date_of_Birth date  NOT NULL,
+    Country_of_Birth varchar2(50)  NOT NULL,
+    Career_Begining date  NOT NULL,
+    Education_id integer  NOT NULL,
+    AppearanceDetail_ID integer  NOT NULL,
+    Sex varchar2(2)  NULL,
+    CONSTRAINT Actor_pk PRIMARY KEY (id)
+) ;
+
+-- Table: Actor_Award
+CREATE TABLE Actor_Award (
+    Actor_id integer  NOT NULL,
+    Award_id integer  NOT NULL,
+    CONSTRAINT Actor_Award_pk PRIMARY KEY (Actor_id,Award_id)
+) ;
+
+-- Table: AppearanceDetail
+CREATE TABLE AppearanceDetail (
+    ID integer  NOT NULL,
+    Height number(3,0)  NOT NULL,
+    Hair_Color varchar2(10)  NOT NULL,
+    Eye_Color varchar2(10)  NOT NULL,
+    SkinTone varchar2(10)  NOT NULL,
+    ClothingSize varchar2(2)  NOT NULL,
+    CONSTRAINT AppearanceDetail_pk PRIMARY KEY (ID)
+) ;
+
+-- Table: Award
+CREATE TABLE Award (
+    id integer  NOT NULL,
+    Name varchar2(30)  NOT NULL,
+    Date_Receive date  NOT NULL,
+    ShortDescription varchar2(150)  NOT NULL,
+    Category varchar2(30)  NOT NULL,
+    CONSTRAINT Award_pk PRIMARY KEY (id)
+) ;
+
+-- Table: Education
+CREATE TABLE Education (
+    id integer  NOT NULL,
+    Degree varchar2(30)  NOT NULL,
+    Major varchar2(30)  NOT NULL,
+    Institution varchar2(30)  NOT NULL,
+    Graduation_year date  NOT NULL,
+    CONSTRAINT Education_pk PRIMARY KEY (id)
+) ;
+
+-- Table: Genre
+CREATE TABLE Genre (
+    id integer  NOT NULL,
+    Name varchar2(20)  NOT NULL,
+    CONSTRAINT Genre_pk PRIMARY KEY (id)
+) ;
+
+-- Table: Location
+CREATE TABLE Location (
+    ID integer  NOT NULL,
+    Name varchar2(30)  NOT NULL,
+    City varchar2(30)  NOT NULL,
+    CONSTRAINT Location_pk PRIMARY KEY (ID)
+) ;
+
+-- Table: Movie
+CREATE TABLE Movie (
+    id integer  NOT NULL,
+    Title varchar2(30)  NOT NULL,
+    Release_date date  NOT NULL,
+    Rating number(2,1)  NOT NULL,
+    Location_ID integer  NOT NULL,
+    CONSTRAINT Movie_pk PRIMARY KEY (id)
+) ;
+
+-- Table: MovieGenre
+CREATE TABLE MovieGenre (
+    Movie_id integer  NOT NULL,
+    Genre_id integer  NOT NULL,
+    CONSTRAINT MovieGenre_pk PRIMARY KEY (Movie_id,Genre_id)
+) ;
+
+-- Table: Movie_Actor
+CREATE TABLE Movie_Actor (
+    Actors_id integer  NOT NULL,
+    Movie_id integer  NOT NULL,
+    Rol varchar2(30)  NOT NULL,
+    CONSTRAINT Movie_Actor_pk PRIMARY KEY (Actors_id,Movie_id)
+) ;
+
+-- foreign keys
+-- Reference: Actor_AppearanceDetail (table: Actor)
+ALTER TABLE Actor ADD CONSTRAINT Actor_AppearanceDetail
+    FOREIGN KEY (AppearanceDetail_ID)
+    REFERENCES AppearanceDetail (ID);
+
+-- Reference: Actor_Award_Actor (table: Actor_Award)
+ALTER TABLE Actor_Award ADD CONSTRAINT Actor_Award_Actor
+    FOREIGN KEY (Actor_id)
+    REFERENCES Actor (id);
+
+-- Reference: Actor_Award_Award (table: Actor_Award)
+ALTER TABLE Actor_Award ADD CONSTRAINT Actor_Award_Award
+    FOREIGN KEY (Award_id)
+    REFERENCES Award (id);
+
+-- Reference: Actors_Education (table: Actor)
+ALTER TABLE Actor ADD CONSTRAINT Actors_Education
+    FOREIGN KEY (Education_id)
+    REFERENCES Education (id);
+
+-- Reference: MovieGenre_Genre (table: MovieGenre)
+ALTER TABLE MovieGenre ADD CONSTRAINT MovieGenre_Genre
+    FOREIGN KEY (Genre_id)
+    REFERENCES Genre (id);
+
+-- Reference: MovieGenres_Movie (table: MovieGenre)
+ALTER TABLE MovieGenre ADD CONSTRAINT MovieGenres_Movie
+    FOREIGN KEY (Movie_id)
+    REFERENCES Movie (id);
+
+-- Reference: Movie_Actors_Actors (table: Movie_Actor)
+ALTER TABLE Movie_Actor ADD CONSTRAINT Movie_Actors_Actors
+    FOREIGN KEY (Actors_id)
+    REFERENCES Actor (id);
+
+-- Reference: Movie_Actors_Movie (table: Movie_Actor)
+ALTER TABLE Movie_Actor ADD CONSTRAINT Movie_Actors_Movie
+    FOREIGN KEY (Movie_id)
+    REFERENCES Movie (id);
+
+-- Reference: Movie_Location (table: Movie)
+ALTER TABLE Movie ADD CONSTRAINT Movie_Location
+    FOREIGN KEY (Location_ID)
+    REFERENCES Location (ID);
+ALTER TABLE Movie MODIFY (Rating NUMBER(2,1));
+-- End of file.
